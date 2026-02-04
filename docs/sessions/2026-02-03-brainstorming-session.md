@@ -48,8 +48,8 @@ After invoking the brainstorming skill, we had a proper design conversation:
 
 ### 3. Outputs Produced
 
-- `docs/plan/implementation-plan-v1.md` - Original technical plan (before brainstorming)
-- `docs/plan/2026-02-03-brainstormed-design.md` - Refined design after dialogue
+- `docs/plans/implementation-plan-v1.md` - Original technical plan (before brainstorming)
+- `docs/plans/2026-02-03-brainstormed-design.md` - Refined design after dialogue
 - `/Users/lisandro/.claude/plans/drifting-swimming-frost.md` - Final plan file
 
 ---
