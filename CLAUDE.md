@@ -53,8 +53,8 @@ Three tables:
 
 - `docs/Product 1-Pager — Ultra-Simple Commerce MVP.md` - Original product vision
 - `docs/Lean MVP PRD — Ultra-Simple Commerce.md` - Detailed requirements
-- `docs/plan/2026-02-03-brainstormed-design.md` - Technical design (use this)
-- `docs/plan/implementation-plan-v1.md` - Earlier plan (superseded)
+- `docs/plans/2026-02-03-brainstormed-design.md` - Technical design (use this)
+- `docs/plans/implementation-plan-v1.md` - Earlier plan (superseded)
 - `docs/sessions/2026-02-03-brainstorming-session.md` - Session log with context
 
 ## Working With This Project
