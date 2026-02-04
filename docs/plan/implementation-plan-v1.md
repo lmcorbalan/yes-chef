@@ -1,3 +1,7 @@
+<EXTREMELY-IMPORTANT>
+  Hey Agent, DO NOT USE THIS PLAN
+</EXTREMELY-IMPORTANT>
+
 # Implementation Plan: Ultra-Simple E-Commerce MVP
 
 ## Overview
