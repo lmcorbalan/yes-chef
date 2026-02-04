@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code when working with this repository.
 
 ## Project Overview
 
@@ -10,24 +10,75 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Collaboration model:** Agent proposes small pieces → human reviews → iterate. Short cycles with frequent checkpoints.
 
-## Technology Stack
+## Current Status
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | Next.js 14 (App Router) + Tailwind CSS |
-| Wallet | wagmi + RainbowKit |
-| Backend | Supabase (Database + Auth + Storage + Realtime) |
-| Hosting | Vercel |
-| Payment | USDC on Ethereum (EIP-3009 transferWithAuthorization) |
+**Phase:** Phase 0 complete (agent-friendly setup), ready for Phase 1 (Foundation)
+
+**Next:** Initialize Next.js 14 + Tailwind + Supabase, create database schema, set up wagmi + RainbowKit
+
+## Quick Reference
+
+```bash
+# Development
+pnpm install          # Install dependencies
+pnpm dev              # Start dev server
+pnpm lint             # Check linting
+pnpm typecheck        # Check types
+pnpm test             # Run tests
+
+# Supabase
+pnpm supabase start   # Start local Supabase
+pnpm supabase stop    # Stop local Supabase
+```
+
+## Tech Stack
+
+| Layer | Technology | Version |
+|-------|------------|---------|
+| Frontend | Next.js (App Router) | 14.x |
+| Styling | Tailwind CSS | 3.x |
+| Wallet | wagmi + RainbowKit | wagmi 2.x |
+| Backend | Supabase | Latest |
+| Payment | USDC (EIP-3009) | - |
+
+## Rules
+
+Read these before making changes:
+
+| Rule | Type | File |
+|------|------|------|
+| Security | STRICT | `docs/rules/security.md` |
+| Scope | STRICT | `docs/rules/scope.md` |
+| Decisions | STRICT | `docs/rules/decisions.md` |
+| Style | Advisory | `docs/rules/style.md` |
+| Workflow | Advisory | `docs/rules/workflow.md` |
+
+**STRICT rules must never be broken. Advisory rules can be deviated from with good reason.**
+
+## Skills
+
+Use these for common tasks:
+
+| Skill | Type | When to Use |
+|-------|------|-------------|
+| `docs/skills/add-page.md` | Template | Creating new routes |
+| `docs/skills/add-supabase-table.md` | Checklist | Database changes |
+| `docs/skills/add-wagmi-hook.md` | Template | Wallet interactions |
+| `docs/skills/dev-workflow.md` | Reference | Development commands |
+| `docs/skills/create-checkpoint.md` | Checklist | Completing work |
 
 ## Key Design Decisions
 
-- **Seller auth:** Sign-In with Ethereum (SIWE) - wallet = identity = payment address
-- **Buyer auth:** None required (guest checkout)
-- **Payment:** USDC only (1:1 with USD, no price conversion)
-- **Payment method:** EIP-3009 `transferWithAuthorization` (no custom contracts)
-- **Communication:** Telegram link-out only (no in-app messaging)
-- **Minimal friction:** Spirit over letter - aim for fewest steps, not strict click counting
+Major decisions have been made and documented. Don't re-litigate without explicit approval.
+
+| Decision | Summary | ADR |
+|----------|---------|-----|
+| Supabase | Use for all backend (DB, auth, storage) | `docs/decisions/001-supabase-stack.md` |
+| SIWE Auth | Wallet-based seller authentication | `docs/decisions/002-siwe-auth.md` |
+| USDC + EIP-3009 | Stablecoin payments, buyer pays gas | `docs/decisions/003-usdc-eip3009.md` |
+| Guest Checkout | No buyer accounts | `docs/decisions/004-no-buyer-accounts.md` |
+| Dual Agent Files | AGENTS.md + CLAUDE.md | `docs/decisions/005-dual-agent-files.md` |
+| Tool-Agnostic Structure | Rules/skills in docs/, not .claude/ | `docs/decisions/006-agnostic-folder-structure.md` |
 
 ## Data Model
 
@@ -45,17 +96,10 @@ Three tables:
 5. **Checkout & Payment** - USDC transferWithAuthorization flow
 6. **Order Status** - Confirmation pages, seller order list
 
-## Current Status
-
-**Phase:** Planning complete, ready for Phase 1 implementation
-
 ## Key Documents
 
-- `docs/Product 1-Pager — Ultra-Simple Commerce MVP.md` - Original product vision
-- `docs/Lean MVP PRD — Ultra-Simple Commerce.md` - Detailed requirements
-- `docs/plans/2026-02-03-brainstormed-design.md` - Technical design (use this)
-- `docs/plans/implementation-plan-v1.md` - Earlier plan (superseded)
-- `docs/sessions/2026-02-03-brainstorming-session.md` - Session log with context
+- `docs/plans/2026-02-03-brainstormed-design.md` - Full technical design
+- `docs/sessions/` - Session logs with context on past decisions
 
 ## Working With This Project
 
@@ -63,7 +107,5 @@ Three tables:
 2. **Propose small pieces** and wait for review before proceeding
 3. **Reference the design doc** for technical decisions already made
 4. **Check session logs** for context on past decisions and user preferences
-
-## Commands
-
-_To be added as the project develops_
+5. **Read the rules** before making changes (especially STRICT rules)
+6. **Use the skills** for common tasks to maintain consistency
