@@ -12,9 +12,9 @@ Instructions for AI coding assistants working on this project.
 
 ## Current Status
 
-**Phase:** Phase 0 complete (agent-friendly setup), ready for Phase 1 (Foundation)
+**Phase:** Phase 1 complete (Foundation)
 
-**Next:** Initialize Next.js 14 + Tailwind + Supabase, create database schema, set up wagmi + RainbowKit
+**Next:** Phase 2 - Seller Auth (SIWE): Wallet-based login, registration with Telegram handle, protected seller routes
 
 ## Quick Reference
 
